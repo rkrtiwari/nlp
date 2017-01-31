@@ -66,11 +66,39 @@ lancaster = nltk.LancasterStemmer()
 [lancaster.stem(word) for word in token]
 
 
+### POS tagger
+sent = "and now for something completely different"
+text = nltk.word_tokenize(sent)
+nltk.pos_tag(text)
+
+### tagged corpus
+nltk.corpus.brown.tagged_words()
+nltk.corpus.nps_chat.tagged_words()
+
+### Regular Expression Tagger
+patterns = [(r'.*ed$', 'V'),
+          (r'.*ing', 'V'),
+          (r'.*', 'N')
+    ]
+tag = nltk.RegexpTagger(patterns)
 
 
+### python dictionary
+## Initializing a dictionary
+pos = {}
+pos['colorless'] =  'ADJ'
+pos['idea'] = 'N'
+pos['sleep'] = 'V'
 
+## Accessing dictionay and its elements
+pos
+pos.keys()
+pos.values()
+pos.items()
 
-
+## Initializing a default dictionary
+d1 = nltk.defaultdict(int)
+d2 = nltk.defaultdict(lambda: 'N')
 
 ## capturing user input
 
