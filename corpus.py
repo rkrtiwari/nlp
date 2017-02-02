@@ -33,3 +33,36 @@ cfd = nltk.ConditionalFreqDist(
     for word in nltk.corpus.brown.words(categories = gen))
 
 cfd['news']['the']
+
+model = ['can', 'could', 'would', 'will']
+
+for item in model:
+    print 'news', item, ":", cfd['news'][item]
+    print 'hobbies', item, ":", cfd['hobbies'][item]
+
+## finding the fraction of stopword in a given text
+
+stopword = nltk.corpus.stopwords.words('english')
+newsword = nltk.corpus.brown.words(categories='news')
+
+nonstopword = [w for w in newsword if w.lower() not in stopword]
+len(nonstopword)/len(newsword)
+
+## Finding the name
+nltk.corpus.names.fileids()
+
+cfd = nltk.ConditionalFreqDist((fileid, names[-1]) for fileid in nltk.corpus.names.fileids()
+          for names in nltk.corpus.names.words(fileid))
+
+cfd.items()[:10]
+cfd.plot()
+
+## wordnet
+from nltk.corpus import wordnet as wn
+wn.synsets('motorcar')
+
+
+
+
+
+
